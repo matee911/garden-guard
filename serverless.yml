@@ -60,7 +60,7 @@ functions:
   checkForecast:
     handler: handler.check_forecast
     events:
-      - schedule: cron(43 21 * * ? *)
+      - schedule: cron(0 18 * * ? *)
 
 #    The following are a few example events you can configure
 #    NOTE: Please make sure to change your handler code to work with those events
