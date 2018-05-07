@@ -17,6 +17,8 @@ service: garden-guard
 # Check out our docs for more details
 # frameworkVersion: "=X.X.X"
 
+plugins:
+  - serverless-python-requirements
 provider:
   name: aws
   runtime: python3.6
@@ -55,8 +57,10 @@ provider:
 #    - exclude-me-dir/**
 
 functions:
-  hello:
-    handler: handler.hello
+  checkForecast:
+    handler: handler.check_forecast
+    events:
+      - schedule: cron(43 21 * * ? *)
 
 #    The following are a few example events you can configure
 #    NOTE: Please make sure to change your handler code to work with those events
